@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/rajesh1218/Petclinic.git'
-            }
+                checkout scmGit(branches: [[name: '*/1.0.0.0']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rajesh1218/Petclinic.git']])
         }
         stage('Maven Compile') {
           steps {
